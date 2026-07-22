@@ -1,0 +1,16 @@
+{
+  "name": "ukiyo-e",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "浮世微言 —— 现代民间史 · 笔记体网站",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  }
+}

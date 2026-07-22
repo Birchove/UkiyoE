@@ -1,0 +1,23 @@
+# ── 依赖与构建产物 ─────────────────────────────
+node_modules/
+dist/
+.astro/
+
+# ── 本地素材 / 未确认内容(不进入 GitHub 仓库)────
+# 爬取返回的候选 JSON、审核清单等原始素材
+data/
+# 尚未确认的稿件(本地写作区),确认后再移入 src/content/entries/ 发布
+_drafts/
+
+# ── 环境与日志 ─────────────────────────────
+.env
+.env.*
+*.log
+npm-debug.log*
+
+# ── 操作系统 / 编辑器 ─────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

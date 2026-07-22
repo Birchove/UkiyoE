@@ -1,0 +1,22 @@
+---
+import { categoryLabel } from '../lib/categories';
+
+interface Props {
+  title: string;
+  slug: string;
+  category: string;
+  weiyan: string;
+  recorded_date: string;
+  tags?: string[];
+}
+const { title, slug, category, weiyan, recorded_date, tags = [] } = Astro.props;
+---
+<a class="entry-card" href={`/entries/${slug}/`}>
+  <h3 class="ec-title">{title}</h3>
+  {weiyan && <p class="ec-weiyan">{weiyan}</p>}
+  <div class="ec-meta">
+    <span class="tag">{categoryLabel(category)}</span>
+    <span>收录于 {recorded_date}</span>
+    {tags.slice(0, 3).map((t) => <span class="tag plain">#{t}</span>)}
+  </div>
+</a>

@@ -1,0 +1,32 @@
+---
+import { CATEGORIES, CATEGORY_KEYS } from '../lib/categories';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const navItems = [
+  { href: '/', label: '首页' },
+  ...CATEGORY_KEYS.map((k) => ({ href: `/${k}`, label: CATEGORIES[k].label })),
+  { href: '/about', label: '关于' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return path === '/';
+  return path === href || path.startsWith(href + '/');
+}
+---
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand" style="text-decoration:none;border:none;">
+      <span class="brand-seal" aria-hidden="true">微言</span>
+      <h1 class="brand-title">浮世微言</h1>
+    </a>
+    <p class="brand-sub">现代民间史 · 笔记体 · UkiyoE</p>
+    <nav class="site-nav" aria-label="主导航">
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

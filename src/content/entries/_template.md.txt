@@ -1,0 +1,31 @@
+<!--
+  条目模板:复制本文件到 src/content/entries/ 下,以英文 slug 命名(如 my-entry.md)。
+  文件名即条目 URL:src/content/entries/my-entry.md → /entries/my-entry/
+
+  - 「记事」:写在正文(本注释下方),白话、客观;有争议请并列各方观点。
+  - 「微言」:写在 frontmatter 的 weiyan 字段,半白半文言,无需自带"微言曰"。
+  - status:draft(草稿) / review(待审) / published(发布)。仅 published 会上站。
+-->
+---
+title: "条目标题(可适度文言化)"
+category: "figures"            # figures 人物 / events 时事 / customs 风物 / humor 笑语
+tags: ["标签一", "标签二"]
+event_date: "2026"             # 事件时间或时间跨度,如 "2023-2026"
+recorded_date: "2026-07-22"    # 收录(撰写)日期 YYYY-MM-DD
+sources:
+  - name: "来源名称"
+    url: "https://…"
+    date: "2026-07-20"
+    note: "一句话说明(可选)"
+figures: ["涉及人物"]
+controversial: false           # 是否含争议
+status: "draft"                # draft / review / published
+summary: "一句话提要,用于列表卡片。"
+weiyan: |
+  此处写微言(评语),半白半文言。可褒贬、可寓感慨。
+  无需写"微言曰"三字,页面会自动加上。
+---
+
+在此写「记事」正文:白话、客观、克制,交代时间、人物、起因、经过、结果。
+
+若有争议,可用 **誉之者** 以为……、**毁之者** 以为…… 的方式并列各方说法。

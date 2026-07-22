@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import EntryCard from '../components/EntryCard.astro';
+import { getCollection } from 'astro:content';
+import { CATEGORIES, CATEGORY_KEYS } from '../lib/categories';
+
+const published = (
+  await getCollection('entries', ({ data }) => data.status === 'published')
+).sort((a, b) => b.data.recorded_date.localeCompare(a.data.recorded_date));
+const latest = published.slice(0, 8);
+---
+<Base title="浮世微言 · 现代民间史">
+  <section class="hero">
+    <div class="hero-en" aria-label="UkiyoE">UkiyoE</div>
+    <p class="tagline">记浮世之事 · 发幽微之言</p>
+    <p class="motto">为后人留一部当代之《世说新语》《笑林广记》</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">四栏</h2>
+    <p class="section-lead">分栏以别其类——人物、时事、风物、笑语。</p>
+    <div class="columns">
+      {CATEGORY_KEYS.map((k) => (
+        <a class="column-card" href={`/${k}`}>
+          <div class="col-name">{CATEGORIES[k].label}</div>
+          <p class="col-desc">{CATEGORIES[k].desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">近录</h2>
+    <p class="section-lead">最新收录之条目。</p>
+    {latest.length > 0 ? (
+      <div class="entry-list">
+        {latest.map((e) => (
+          <EntryCard
+            title={e.data.title}
+            slug={e.id}
+            category={e.data.category}
+            weiyan={e.data.weiyan}
+            recorded_date={e.data.recorded_date}
+            tags={e.data.tags}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="empty">尚无收录条目。</div>
+    )}
+  </section>
+</Base>

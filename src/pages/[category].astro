@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import EntryCard from '../components/EntryCard.astro';
+import BackLink from '../components/BackLink.astro';
+import { getCollection } from 'astro:content';
+import { CATEGORIES, CATEGORY_KEYS, type CategoryKey } from '../lib/categories';
+
+export function getStaticPaths() {
+  return CATEGORY_KEYS.map((key) => ({ params: { category: key } }));
+}
+
+const key = Astro.params.category as CategoryKey;
+const meta = CATEGORIES[key];
+
+const entries = (
+  await getCollection(
+    'entries',
+    ({ data }) => data.status === 'published' && data.category === key,
+  )
+).sort((a, b) => b.data.recorded_date.localeCompare(a.data.recorded_date));
+---
+<Base title={`${meta.label} · 浮世微言`} description={meta.desc}>
+  <BackLink href="/" label="返回首页" />
+  <h1 class="section-title" style="font-size:2.1rem;">{meta.label}</h1>
+  <p class="section-lead">{meta.desc}</p>
+
+  {entries.length > 0 ? (
+    <div class="entry-list">
+      {entries.map((e) => (
+        <EntryCard
+          title={e.data.title}
+          slug={e.id}
+          category={e.data.category}
+          weiyan={e.data.weiyan}
+          recorded_date={e.data.recorded_date}
+          tags={e.data.tags}
+        />
+      ))}
+    </div>
+  ) : (
+    <div class="empty">此栏暂无收录,敬请期待。</div>
+  )}
+</Base>

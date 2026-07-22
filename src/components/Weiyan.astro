@@ -1,0 +1,21 @@
+---
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+
+// 空行分段;段内换行视为排版折行,合并为连续行文
+const paragraphs = text
+  .split(/\n{2,}/)
+  .map((p) => p.replace(/\s*\n\s*/g, '').trim())
+  .filter(Boolean);
+---
+<aside class="weiyan" aria-label="微言评语">
+  <div class="weiyan-head">
+    <div class="weiyan-seal" aria-hidden="true">微言</div>
+    <div class="weiyan-lead">微言曰</div>
+  </div>
+  <div class="weiyan-text">
+    {paragraphs.map((p) => <p>{p}</p>)}
+  </div>
+</aside>
