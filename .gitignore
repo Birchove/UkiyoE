@@ -21,3 +21,10 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# ── 本地 Claude 配置(每台机器不同,绝不入库)──
+.claude/settings.local.json
+
+# ── 图片母版应放 public/(已存网页优化版);根目录不留,以免割裂 ──
+/logo.png
+/ban.png
