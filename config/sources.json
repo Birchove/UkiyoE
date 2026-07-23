@@ -1,0 +1,13 @@
+{
+  "_comment": "DailyHotApi 数据源映射。route 为 DailyHotApi 的路径段;base_url 可用环境变量 DAILYHOT_API 覆盖。category_guess 为粗分默认值,filter.py 会按关键词再校正,最终由人工定夺。enabled=false 可临时停用某源。",
+  "base_url_env": "DAILYHOT_API",
+  "base_url_default": "http://localhost:6688",
+  "sources": [
+    { "key": "weibo",    "route": "weibo",    "label": "微博热搜", "category_guess": "时事", "enabled": true },
+    { "key": "zhihu",    "route": "zhihu",    "label": "知乎热榜", "category_guess": "时事", "enabled": true },
+    { "key": "baidu",    "route": "baidu",    "label": "百度热搜", "category_guess": "时事", "enabled": true },
+    { "key": "toutiao",  "route": "toutiao",  "label": "今日头条", "category_guess": "时事", "enabled": true },
+    { "key": "douyin",   "route": "douyin",   "label": "抖音热点", "category_guess": "时事", "enabled": true },
+    { "key": "bilibili", "route": "bilibili", "label": "哔哩哔哩", "category_guess": "风物", "enabled": true }
+  ]
+}

@@ -39,7 +39,15 @@
       "WebFetch(domain:club.gamersky.com)",
       "WebFetch(domain:www.sina.cn)",
       "WebFetch(domain:www.zhihu.com)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(python3 scripts/crawl.py --mock)",
+      "Bash(python3 scripts/filter.py)",
+      "Bash(sed -n '/## 🔥/,/## 风物/p' \"data/board/2026-07-23.md\")",
+      "Bash(python3 -c \"import json;d=json.load\\(open\\('data/filtered/2026-07-23.json'\\)\\);c=d[0];print\\(json.dumps\\({'title':c['title'],'source_count':c['source_count'],'heat_max':c['heat_max'],'sources':[s['source_label'] for s in c['sources']]},ensure_ascii=False,indent=2\\)\\)\")",
+      "Bash(python3 scripts/crawl.py)",
+      "Bash(cd *)"
     ]
   }
 }
