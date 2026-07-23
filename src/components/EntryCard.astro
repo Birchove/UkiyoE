@@ -8,15 +8,24 @@ interface Props {
   weiyan: string;
   recorded_date: string;
   tags?: string[];
+  revealIndex?: number;
+  by?: string;
 }
-const { title, slug, category, weiyan, recorded_date, tags = [] } = Astro.props;
+const { title, slug, category, weiyan, recorded_date, tags = [], revealIndex, by = '' } = Astro.props;
+const delay = revealIndex != null ? Math.min(revealIndex, 5) * 80 : 0;
 ---
-<a class="entry-card" href={`/entries/${slug}/`}>
+<a
+  class="entry-card"
+  href={`/entries/${slug}/`}
+  data-reveal
+  style={`--d:${delay}ms`}
+>
   <h3 class="ec-title">{title}</h3>
   {weiyan && <p class="ec-weiyan">{weiyan}</p>}
   <div class="ec-meta">
     <span class="tag">{categoryLabel(category)}</span>
     <span>收录于 {recorded_date}</span>
+    {by && <span class="ec-by">执笔 · {by}</span>}
     {tags.slice(0, 3).map((t) => <span class="tag plain">#{t}</span>)}
   </div>
 </a>

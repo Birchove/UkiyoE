@@ -1,5 +1,6 @@
 ---
 title: "谷子小史"
+by: "望舟星"
 category: "customs"
 tags: ["二次元", "谷子", "青年文化", "情绪消费", "亚文化"]
 event_date: "2023-2026"

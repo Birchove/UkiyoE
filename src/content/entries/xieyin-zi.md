@@ -1,5 +1,6 @@
 ---
 title: "谐音字小史"
+by: "慕花诗"
 category: "customs"
 tags: ["网络", "语言", "谐音", "火星文", "文字游戏"]
 event_date: "2000-2026"

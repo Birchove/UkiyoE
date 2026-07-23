@@ -41,6 +41,8 @@ const entries = defineCollection({
     status: z.enum(['draft', 'review', 'published']).default('published'),
     /** 一句话提要,用于列表卡片 */
     summary: z.string().default(''),
+    /** 执笔者(站主)笔名;由 scripts/roll-by.py 以真随机抽取并落盘,贡献稿可留空 */
+    by: z.string().default(''),
     /** 微言(评语)正文,半白半文言,无需自带"微言曰"前缀 */
     weiyan: z.string(),
   }),

@@ -47,7 +47,17 @@
       "Bash(sed -n '/## 🔥/,/## 风物/p' \"data/board/2026-07-23.md\")",
       "Bash(python3 -c \"import json;d=json.load\\(open\\('data/filtered/2026-07-23.json'\\)\\);c=d[0];print\\(json.dumps\\({'title':c['title'],'source_count':c['source_count'],'heat_max':c['heat_max'],'sources':[s['source_label'] for s in c['sources']]},ensure_ascii=False,indent=2\\)\\)\")",
       "Bash(python3 scripts/crawl.py)",
-      "Bash(cd *)"
+      "Bash(cd *)",
+      "Read(//home/birchove/.claude/image-cache/92393169-4db4-40d3-8b0c-27607ee54d8c/**)",
+      "Read(//home/birchove/**)",
+      "Bash(cp -f logo.png public/logo.png)",
+      "Bash(cp -f ban.png public/ban.png)",
+      "Bash(command -v convert)",
+      "Bash(command -v magick)",
+      "Bash(python3 -c \"import PIL; print\\('Pillow:', PIL.__version__\\)\")",
+      "Bash(python3 -)",
+      "Bash(python3 scripts/roll-by.py src/content/entries/zhangxuefeng.md src/content/entries/xieyin-zi.md src/content/entries/guzi-xiaoshi.md src/content/entries/ruozhiba.md src/content/entries/kongyiji-wenxue.md)",
+      "Bash(python3 scripts/roll-by.py src/content/entries/*.md)"
     ]
   }
 }

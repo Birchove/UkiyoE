@@ -17,7 +17,7 @@ const { title, description = '浮世微言 —— 现代民间史 · 笔记体�
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,12 +26,38 @@ const { title, description = '浮世微言 —— 现代民间史 · 笔记体�
     />
   </head>
   <body>
+    <div class="gutter gutter-l" aria-hidden="true">浮世微言</div>
+    <div class="gutter gutter-r" aria-hidden="true">UkiyoE · 现代民间史</div>
     <Header />
     <main>
-      <div class="container">
-        <slot />
-      </div>
+      <slot />
     </main>
     <Footer />
+    <script>
+      // 吸顶页眉阴影
+      const header = document.querySelector('.site-header');
+      const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 8);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // 滚动渐显
+      const items = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -7% 0px' },
+        );
+        items.forEach((el) => io.observe(el));
+      } else {
+        items.forEach((el) => el.classList.add('in'));
+      }
+    </script>
   </body>
 </html>

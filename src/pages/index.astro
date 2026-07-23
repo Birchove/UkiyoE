@@ -8,45 +8,74 @@ const published = (
   await getCollection('entries', ({ data }) => data.status === 'published')
 ).sort((a, b) => b.data.recorded_date.localeCompare(a.data.recorded_date));
 const latest = published.slice(0, 8);
+
+const NUM = ['壹', '贰', '叁', '肆', '伍', '陆'];
 ---
 <Base title="浮世微言 · 现代民间史">
-  <section class="hero">
-    <div class="hero-en" aria-label="UkiyoE">UkiyoE</div>
-    <p class="tagline">记浮世之事 · 发幽微之言</p>
-    <p class="motto">为后人留一部当代之《世说新语》《笑林广记》</p>
-  </section>
-
-  <section>
-    <h2 class="section-title">四栏</h2>
-    <p class="section-lead">分栏以别其类——人物、时事、风物、笑语。</p>
-    <div class="columns">
-      {CATEGORY_KEYS.map((k) => (
-        <a class="column-card" href={`/${k}`}>
-          <div class="col-name">{CATEGORIES[k].label}</div>
-          <p class="col-desc">{CATEGORIES[k].desc}</p>
-        </a>
-      ))}
+  <section class="masthead" data-reveal>
+    <div class="masthead-frame">
+      <img class="masthead-seal" src="/logo.png" alt="" aria-hidden="true" />
+      <img
+        class="masthead-banner"
+        src="/ban.png"
+        alt="浮世微言 UkiyoE"
+        width="1500"
+        height="210"
+      />
     </div>
+    <p class="masthead-tag">记浮世之事 · 发幽微之言</p>
+    <p class="masthead-motto">为后人留一部当代之《世说新语》《笑林广记》</p>
   </section>
 
-  <section>
-    <h2 class="section-title">近录</h2>
-    <p class="section-lead">最新收录之条目。</p>
-    {latest.length > 0 ? (
-      <div class="entry-list">
-        {latest.map((e) => (
-          <EntryCard
-            title={e.data.title}
-            slug={e.id}
-            category={e.data.category}
-            weiyan={e.data.weiyan}
-            recorded_date={e.data.recorded_date}
-            tags={e.data.tags}
-          />
+  <div class="container">
+    <p class="intro-band" data-reveal>
+      每条目皆分两部 —— <b>记事</b>以白话存其真,<b>微言</b>以文言见其义。
+    </p>
+
+    <section data-reveal>
+      <div class="section-head">
+        <h2 class="section-title">四栏</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <p class="section-lead">分栏以别其类,如书之目录,循类而观。</p>
+      <div class="col-list">
+        {CATEGORY_KEYS.map((k, i) => (
+          <a class="col-row" href={`/${k}`}>
+            <span class="col-num" aria-hidden="true">{NUM[i]}</span>
+            <span class="col-main">
+              <span class="col-name">{CATEGORIES[k].label}</span>
+              <span class="col-desc">{CATEGORIES[k].desc}</span>
+            </span>
+            <span class="col-go" aria-hidden="true">→</span>
+          </a>
         ))}
       </div>
-    ) : (
-      <div class="empty">尚无收录条目。</div>
-    )}
-  </section>
+    </section>
+
+    <section data-reveal>
+      <div class="section-head">
+        <h2 class="section-title">近录</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <p class="section-lead">最新收录之条目。</p>
+      {latest.length > 0 ? (
+        <div class="entry-grid">
+          {latest.map((e, i) => (
+            <EntryCard
+              title={e.data.title}
+              slug={e.id}
+              category={e.data.category}
+              weiyan={e.data.weiyan}
+              recorded_date={e.data.recorded_date}
+              tags={e.data.tags}
+              by={e.data.by}
+              revealIndex={i}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="empty">尚无收录条目。</div>
+      )}
+    </section>
+  </div>
 </Base>

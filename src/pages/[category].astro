@@ -20,24 +20,31 @@ const entries = (
 ).sort((a, b) => b.data.recorded_date.localeCompare(a.data.recorded_date));
 ---
 <Base title={`${meta.label} · 浮世微言`} description={meta.desc}>
-  <BackLink href="/" label="返回首页" />
-  <h1 class="section-title" style="font-size:2.1rem;">{meta.label}</h1>
-  <p class="section-lead">{meta.desc}</p>
-
-  {entries.length > 0 ? (
-    <div class="entry-list">
-      {entries.map((e) => (
-        <EntryCard
-          title={e.data.title}
-          slug={e.id}
-          category={e.data.category}
-          weiyan={e.data.weiyan}
-          recorded_date={e.data.recorded_date}
-          tags={e.data.tags}
-        />
-      ))}
+  <div class="container">
+    <BackLink href="/" label="返回首页" />
+    <div class="section-head">
+      <h1 class="section-title" style="font-size:2.1rem;">{meta.label}</h1>
+      <span class="section-rule" aria-hidden="true"></span>
     </div>
-  ) : (
-    <div class="empty">此栏暂无收录,敬请期待。</div>
-  )}
+    <p class="section-lead">{meta.desc}</p>
+
+    {entries.length > 0 ? (
+      <div class="entry-grid">
+        {entries.map((e, i) => (
+          <EntryCard
+            title={e.data.title}
+            slug={e.id}
+            category={e.data.category}
+            weiyan={e.data.weiyan}
+            recorded_date={e.data.recorded_date}
+            tags={e.data.tags}
+            by={e.data.by}
+            revealIndex={i}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="empty">此栏暂无收录,敬请期待。</div>
+    )}
+  </div>
 </Base>

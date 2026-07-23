@@ -16,46 +16,51 @@ const d = entry.data;
 const figuresText = d.figures.length ? d.figures.join('、') : '';
 ---
 <Base title={`${d.title} · 浮世微言`} description={d.summary}>
-  <BackLink href={`/${d.category}`} label={`返回${categoryLabel(d.category)}`} />
-  <article>
-    <header class="entry-header">
-      <a class="eh-cat tag" href={`/${d.category}`}>{categoryLabel(d.category)}</a>
-      <h1>{d.title}</h1>
-      <div class="eh-meta">
-        事在 {d.event_date} · 录于 {d.recorded_date}
-        {figuresText && ` · 涉 ${figuresText}`}
-      </div>
-      {d.tags.length > 0 && (
-        <div class="eh-tags">
-          {d.tags.map((t) => <span class="tag plain">#{t}</span>)}
+  <div class="container">
+    <BackLink href={`/${d.category}`} label={`返回${categoryLabel(d.category)}`} />
+    <article class="entry-wrap" data-reveal>
+      <header class="entry-header">
+        <a class="eh-cat tag" href={`/${d.category}`}>{categoryLabel(d.category)}</a>
+        <h1>{d.title}</h1>
+        <div class="eh-meta">
+          事在 {d.event_date} · 录于 {d.recorded_date}
+          {figuresText && ` · 涉 ${figuresText}`}
         </div>
+        {d.by && (
+          <div class="eh-byline">执笔 · <span>{d.by}</span></div>
+        )}
+        {d.tags.length > 0 && (
+          <div class="eh-tags">
+            {d.tags.map((t) => <span class="tag plain">#{t}</span>)}
+          </div>
+        )}
+      </header>
+
+      <section class="jishi">
+        <div class="section-label">记事</div>
+        <Content />
+      </section>
+
+      <Weiyan text={d.weiyan} />
+
+      {d.sources.length > 0 && (
+        <footer class="sources">
+          <div class="src-title">所据 · 来源</div>
+          <ol>
+            {d.sources.map((s) => (
+              <li>
+                {s.url ? (
+                  <a href={s.url} target="_blank" rel="noopener">{s.name}</a>
+                ) : (
+                  s.name
+                )}
+                {s.date && `（${s.date}）`}
+                {s.note && ` · ${s.note}`}
+              </li>
+            ))}
+          </ol>
+        </footer>
       )}
-    </header>
-
-    <section class="jishi">
-      <div class="section-label">记事</div>
-      <Content />
-    </section>
-
-    <Weiyan text={d.weiyan} />
-
-    {d.sources.length > 0 && (
-      <footer class="sources">
-        <div class="src-title">所据 · 来源</div>
-        <ol>
-          {d.sources.map((s) => (
-            <li>
-              {s.url ? (
-                <a href={s.url} target="_blank" rel="noopener">{s.name}</a>
-              ) : (
-                s.name
-              )}
-              {s.date && `（${s.date}）`}
-              {s.note && ` · ${s.note}`}
-            </li>
-          ))}
-        </ol>
-      </footer>
-    )}
-  </article>
+    </article>
+  </div>
 </Base>
