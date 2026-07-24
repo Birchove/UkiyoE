@@ -36,15 +36,4 @@
 
 ---
 
-## 技术栈
-
-本站为纯静态站点,手动维护,不设自动构建流程。
-
-- **框架**: [Astro](https://astro.build) — 静态站点生成器,Content Collections + Zod schema 校验内容字段。
-- **内容**: Markdown 文件(frontmatter + 正文),每条目的「记事」为正文,「微言」存于 frontmatter `weiyan` 字段,由组件渲染为独立的笺纸/印章样式区块。
-- **视觉**: 古典克制——宣纸为底、墨色为字、朱砂点睛;衬线中文(Noto Serif SC + 马善政楷体)为主,辅以氛围纸纹、朱砂/金晕染与竖排留白。
-- **部署**: `npm run build` 生成 `dist/` 静态文件,手动推送至 GitHub Pages(`gh-pages` 分支),无 CI/CD。
-
----
-
 内容许可 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) · 站点源码许可 MIT
