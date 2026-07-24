@@ -3,28 +3,34 @@ node_modules/
 dist/
 .astro/
 
-# ── 本地素材 / 未确认内容(不进入 GitHub 仓库)────
-# 爬取返回的候选 JSON、审核清单等原始素材
+# ── 本地素材 / 未确认内容 ──────────────────────
 data/
-# 尚未确认的稿件(本地写作区),确认后再移入 src/content/entries/ 发布
 _drafts/
 
-# ── 环境与日志 ─────────────────────────────
+# ── 环境与日志 ─────────────────────────────────
 .env
 .env.*
 *.log
 npm-debug.log*
 
-# ── 操作系统 / 编辑器 ─────────────────────────
+# ── 操作系统 / 编辑器 ──────────────────────────
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
 
-# ── 本地 Claude 配置(每台机器不同,绝不入库)──
-.claude/settings.local.json
+# ── 项目工具与文档(不入站,仅本地使用) ──────────
+scripts/
+config/
+docs/
+CLAUDE.md
+PLAN.md
+README.txt
+filter_rules.txt
+本地预览说明.txt
+.claude/
 
-# ── 图片母版应放 public/(已存网页优化版);根目录不留,以免割裂 ──
+# ── 图片母版保护(根目录不留图) ────────────────
 /logo.png
 /ban.png
