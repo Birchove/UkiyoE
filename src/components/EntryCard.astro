@@ -1,6 +1,8 @@
 ---
 import { categoryLabel } from '../lib/categories';
 
+const base = import.meta.env.BASE_URL || '/';
+
 interface Props {
   title: string;
   slug: string;
@@ -16,7 +18,7 @@ const delay = revealIndex != null ? Math.min(revealIndex, 5) * 80 : 0;
 ---
 <a
   class="entry-card"
-  href={`/entries/${slug}/`}
+  href={`${base}/entries/${slug}/`}
   data-reveal
   style={`--d:${delay}ms`}
 >

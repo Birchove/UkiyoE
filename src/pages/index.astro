@@ -4,6 +4,8 @@ import EntryCard from '../components/EntryCard.astro';
 import { getCollection } from 'astro:content';
 import { CATEGORIES, CATEGORY_KEYS } from '../lib/categories';
 
+const base = import.meta.env.BASE_URL || '/';
+
 const published = (
   await getCollection('entries', ({ data }) => data.status === 'published')
 ).sort((a, b) => b.data.recorded_date.localeCompare(a.data.recorded_date));
@@ -14,10 +16,10 @@ const NUM = ['壹', '贰', '叁', '肆', '伍', '陆'];
 <Base title="浮世微言 · 现代民间史">
   <section class="masthead" data-reveal>
     <div class="masthead-frame">
-      <img class="masthead-seal" src="/logo.png" alt="" aria-hidden="true" />
+      <img class="masthead-seal" src={`${base}/logo.png`} alt="" aria-hidden="true" />
       <img
         class="masthead-banner"
-        src="/ban.png"
+        src={`${base}/ban.png`}
         alt="浮世微言 UkiyoE"
         width="1500"
         height="210"
@@ -40,7 +42,7 @@ const NUM = ['壹', '贰', '叁', '肆', '伍', '陆'];
       <p class="section-lead">分栏以别其类,如书之目录,循类而观。</p>
       <div class="col-list">
         {CATEGORY_KEYS.map((k, i) => (
-          <a class="col-row" href={`/${k}`}>
+          <a class="col-row" href={`${base}/${k}`}>
             <span class="col-num" aria-hidden="true">{NUM[i]}</span>
             <span class="col-main">
               <span class="col-name">{CATEGORIES[k].label}</span>

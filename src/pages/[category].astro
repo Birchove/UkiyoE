@@ -4,6 +4,7 @@ import EntryCard from '../components/EntryCard.astro';
 import BackLink from '../components/BackLink.astro';
 import { getCollection } from 'astro:content';
 import { CATEGORIES, CATEGORY_KEYS, type CategoryKey } from '../lib/categories';
+const base = import.meta.env.BASE_URL || '/';
 
 export function getStaticPaths() {
   return CATEGORY_KEYS.map((key) => ({ params: { category: key } }));
@@ -21,7 +22,7 @@ const entries = (
 ---
 <Base title={`${meta.label} · 浮世微言`} description={meta.desc}>
   <div class="container">
-    <BackLink href="/" label="返回首页" />
+    <BackLink href={base} label="返回首页" />
     <div class="section-head">
       <h1 class="section-title" style="font-size:2.1rem;">{meta.label}</h1>
       <span class="section-rule" aria-hidden="true"></span>

@@ -4,6 +4,7 @@ import Weiyan from '../../components/Weiyan.astro';
 import BackLink from '../../components/BackLink.astro';
 import { getCollection, render } from 'astro:content';
 import { categoryLabel } from '../../lib/categories';
+const base = import.meta.env.BASE_URL || '/';
 
 export async function getStaticPaths() {
   const entries = await getCollection('entries');
@@ -17,7 +18,7 @@ const figuresText = d.figures.length ? d.figures.join('、') : '';
 ---
 <Base title={`${d.title} · 浮世微言`} description={d.summary}>
   <div class="container">
-    <BackLink href={`/${d.category}`} label={`返回${categoryLabel(d.category)}`} />
+    <BackLink href={`${base}/${d.category}`} label={`返回${categoryLabel(d.category)}`} />
     <article class="entry-wrap" data-reveal>
       <header class="entry-header">
         <a class="eh-cat tag" href={`/${d.category}`}>{categoryLabel(d.category)}</a>
