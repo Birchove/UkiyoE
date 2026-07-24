@@ -5,8 +5,8 @@ import { defineConfig } from 'astro/config';
 //   site: 'https://<用户名>.github.io',
 //   base: '/UkiyoE',
 export default defineConfig({
-  // site: 'https://<用户名>.github.io',
-  // base: '/UkiyoE',
+  site: 'https://<用户名>.github.io',
+  base: '/UkiyoE',
   trailingSlash: 'ignore',
   markdown: {
     shikiConfig: { theme: 'rose-pine' },
