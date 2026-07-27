@@ -1,31 +1,77 @@
 # 浮世微言 · UkiyoE
 
 > 记浮世之事 · 发幽微之言
+>
+> *Record the deeds of the floating world · give voice to its hidden whispers*
 
-📖 **在线阅读** → [birchove.github.io/UkiyoE](https://birchove.github.io/UkiyoE)
+📖 **在线阅读 · Read online** → [birchove.github.io/UkiyoE](https://birchove.github.io/UkiyoE)
 
 ---
 
-「浮世微言」是一部当代之民间史、笔记集——取法《世说新语》《笑林广记》《东京梦华录》《小窗幽记》,以人、以事、以风物、以笑语,记眼前这纷繁流动的人间。不为宏大叙事,不为庙堂之上,只为市井巷陌里那些足资一叹、值得一录的时刻。
+<div align="center">
 
-所谓**浮世**,是眼前这纷繁流动的人间;所谓**微言**,是于记录之外,发一句有态度、有分量的议论。二者合而为一,便是这个站点的志趣:替这个时代,也留一部属于普通人的《世说新语》。
+*同一段话,三种说法* —— 文言 · 白话 · English
 
-### 读什么
+</div>
 
-这里的每一条目,都是一桩真实发生过的事——或是一个人、一个现象、一种风俗、一段笑谈——被认真考据、客观记录,再附上一段有立场的短评。目前已收录的条目,从高考志愿的风波人物张雪峰,到网络谐音字规避审查的二十年小史;从「谷子经济」里一枚铁皮徽章如何承载千万人的热爱与孤独,到弱智吧二十年荒诞段子如何意外成了 AI 的试金石;从「孔乙己文学」里一代青年以黑色幽默浇就业之块垒,到更多正在发生、尚待落笔的浮世片段。
+<details open>
+<summary><b>📜 文言 · Classical Chinese</b></summary>
 
-选材不涉宏大政治,不录花边八卦,不收速朽烂梗。所据必寻多方来源——兼官方报道与民间声音(微博、知乎、B 站、社区、自媒体),先求全貌,再行删减。
+昔太史公究天人之际,通古今之变,成一家之言,而《史记》出焉。然其所记者,王侯将相、礼乐征伐;至于市井之谈、里巷之笑、一人一事之颦笑,则史不之及。欲知一代之风土人情,往往不于正史之篇章,而于笔记之字里:《世说》之玄远,《笑林》之诙诡,《梦华》之繁华——皆史之余,而亦史之真也。
 
-### 怎么写
+孟元老南渡,追念汴京之盛,作《东京梦华录》,自比「梦游华胥之国」。盖向之寻常,即异日之怅惘;当时不经意者,即后人之所渴知也。今之世,言一瞬而万里,梗谚日生,舆论朝起而暮灭;一人一事之微,转瞬即逝。使无人录之,则数十年后,后人欲知吾辈之世,将何所凭?
+
+浮世者,人世也,以其如浮沤之倏起倏灭;微言者,片语也,以其不烦而足以见义。本站之志:为斯世存其真,为后人留其言。不登庙堂之宏,而录民间之微;不为盖棺之论,而存一时之声。褒贬俱收,雅俗并采,俾览者得以观一时之风气,闻众人之谈,而自得其义焉。
+
+</details>
+
+<details>
+<summary><b>💬 现代中文 · Modern Chinese</b></summary>
+
+「浮世微言」是一部写给当下的民间史、笔记集。
+
+史书向来记的是王侯将相、典章制度;而市井的闲谈、街巷的笑声、一个个普通人的悲欢,往往不入正史,却散落在笔记里——《世说新语》的玄远、《笑林广记》的诙谐、《东京梦华录》的繁华,正是「正史之外,而得其真」的那一路。
+
+孟元老在南渡之后写下《东京梦华录》,只为把已经失去的汴京繁华记录下来——因为昔日的寻常,正是后来的怅惘;当时不经意的一切,正是后人所渴望了解的。今天,信息一日万里,新词热梗层出不穷,舆论朝生暮灭;一个人、一件事,转眼就被遗忘。若没有人把它们记下来,几十年后,后人想了解我们这个时代,又能凭据什么呢?
+
+这就是本站的志趣:为这个时代留存它的真实,为后来的人留下它的话语。我们记的是民间,不是庙堂;存的是一时之声,不是盖棺之论。褒贬都收,雅俗都采,让读者得以看见一时之风气,听见众人之谈,而各有会心。
+
+</details>
+
+<details>
+<summary><b>🌐 English</b></summary>
+
+**Whispers of the Floating World** (浮世微言, *Fúshì Wēiyán*) is a folk history of the present — a collection of notes in the old Chinese *biji* tradition. The repository's name, *UkiyoE*, echoes *ukiyo-e* (浮世絵), the "pictures of the floating world" — only here, words stand in for pictures.
+
+Official histories have always recorded kings, generals, rites, and institutions. The idle talk of the marketplace, the laughter of the lanes, the small joys and sorrows of ordinary people — these rarely make it into the official record. Yet they survive in the informal notebooks of the past: the worldly wit of *Shishuo Xinyu* (*A New Account of the Tales of the World*), the jokes of *Xiaolin Guangji* (*Forest of Laughs*), the nostalgic splendor of *Dongjing Menghua Lu* (*Dreams of Splendor of the Eastern Capital*). These are the margins of history — and often its truth.
+
+When the writer Meng Yuanlao fled south, he set down *Dongjing Menghua Lu* simply to preserve the lost capital he could never return to — for the ordinary life of one age is the longing of the next. Today, information travels in an instant; new slang and memes rise and die by the hour; a person, an event, is forgotten almost as soon as it appears. If no one records these things, what will people a generation from now have to hold on to, if they wish to understand our time?
+
+That is the ambition of this site: to preserve the truth of this age, and to leave its words for those who come after. We record the folk, not the court; we keep the living voices of a moment, not the final verdicts of posterity. Praise and blame alike are gathered; the refined and the vulgar alike are admitted — so that a reader may glimpse the spirit of an age, overhear the talk of the crowd, and draw their own meaning.
+
+Each entry is built in two parts: a plain, objective **record** of the event, followed by a brief **commentary** in classical Chinese — an echo of the historian's "The Grand Historian says…". (The site itself is written in Chinese.)
+
+</details>
+
+---
+
+## 所录何物
+
+所录者,皆人间实有、实盛、实动人心之人与事。或一人之浮沉,或一事之喧议,或一俗之流变,或一笑之流传。
+
+- **选材**:足以见一时之风气、动众人之谈、关世道之升降者。可录市井笑谈,不拒市井之谑;然不涉宏大政治,不录花边八卦,不收速生速朽之烂梗。
+- **考据**:先求其全,后求其约。所据必寻多源,兼官方报道与民间声音(微博、知乎、B 站、抖音、社区、自媒体)——官方之言往往偏于克制,民间之声尤能得其全貌;事涉境外者,亦采境外主流媒体,而严拒小报标题、内容农场之流,可疑者孤证不采。存疑必标,绝不编造。
+
+## 体例如何
 
 每条目皆分两部,文风与立场严格有别:
 
-- **记事** —— 以白话记录事件本身。客观克制,不挟情绪,不预设结论;若有争议,则并列各方说法,使读者自辨。篇幅务求充实,所据必寻多方来源。
+- **记事** —— 以白话记录事件本身。客观克制,不挟情绪,不预设结论;若有争议,则并列各方说法,使读者自辨。篇幅务求充实,所据必寻多方。
 - **微言** —— 仿「太史公曰」之笔,于记事之后附一段评语,以「微言曰」领起,统一用浅近文言(笔记体)。可有褒贬,可寓感慨,贵在微言大义,而不贵冗长。
 
 一言以蔽之:**记事求其真,微言见其义。**
 
-### 四栏
+## 四栏
 
 | 栏 | 旨趣 |
 |---|---|
@@ -36,4 +82,6 @@
 
 ---
 
-内容许可 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) · 站点源码许可 MIT
+浮世如沤,起灭倏忽;不有录者,谁其传之?不敢存「一家之言」之志,窃有存一代之真声之意。百年之后,览斯编而知吾世之风者,则区区之志也。
+
+本站以 Astro 构建静态站点,托管于 GitHub Pages。内容许可 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) · 站点源码许可 MIT
