@@ -29,6 +29,7 @@
   --wide-w: 1240px;          /* 页眉/通栏宽 */
   --read-w: 720px;           /* 长文阅读宽 */
   --radius: 5px;
+  color-scheme: light;
   --shadow: 0 14px 38px -22px rgba(42, 38, 32, 0.55);
 }
 
@@ -104,6 +105,7 @@ main { position: relative; z-index: 1; }
   border-bottom-color: var(--line);
 }
 .nav-inner {
+  position: relative;
   max-width: var(--wide-w); margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; padding: 0.62rem 1.7rem;
@@ -329,7 +331,9 @@ main { padding: 0 0 4rem; }
 /* ── 响应式 ─────────────────────────────────── */
 @media (max-width: 760px) {
   .nav-inner { flex-wrap: wrap; padding: 0.6rem 1.1rem; }
-  .site-nav { order: 3; width: 100%; justify-content: center; gap: 0; margin-top: 0.2rem; }
+  .nav-right { order: 3; width: 100%; flex-wrap: wrap; justify-content: center; }
+  .site-nav { width: 100%; justify-content: center; gap: 0; margin-top: 0.2rem; }
+  .theme-toggle { position: absolute; right: 1.1rem; top: 0.62rem; margin-left: 0; }
   .site-nav a { padding: 0.35rem 0.55rem; font-size: 0.92rem; }
   .col-row { grid-template-columns: auto 1fr auto; gap: 0.9rem; }
   .col-num { font-size: 1.7rem; min-width: 1.9rem; }
@@ -348,3 +352,91 @@ main { padding: 0 0 4rem; }
   [data-reveal] { opacity: 1; transform: none; transition: none; }
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.05ms !important; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   夜间模式 · 挑灯夜读
+   以深墨为笺,烛色为字,朱砂提亮,灯下浮金。
+   由 <html data-theme="night"> 触发,与日间共用结构,
+   仅调色与光晕,不增删元素,故两套面目同出一脉。
+   ═══════════════════════════════════════════════════════ */
+:root[data-theme='night'] {
+  color-scheme: dark;
+  --paper:        #1b1712;   /* 夜笺 · 深墨 */
+  --paper-soft:   #221d16;   /* 微言笺 */
+  --paper-card:   #241f18;   /* 卡片 */
+  --paper-img:    #1b1712;
+  --ink:          #e8dec8;   /* 烛照之字,暖白如烛下纸 */
+  --ink-soft:     #c3b89d;
+  --ink-faint:    #8d826a;
+  --seal:         #d4614f;   /* 朱砂提亮,使暗处仍见其色 */
+  --seal-deep:    #e08a73;   /* 灯下可读之朱(链接) */
+  --gold:         #cba45c;   /* 浮金 */
+  --line:         rgba(232, 222, 200, 0.14);
+  --line-soft:    rgba(232, 222, 200, 0.08);
+  --shadow:       0 16px 46px -22px rgba(0, 0, 0, 0.72);
+}
+
+/* 灯晕:日间极淡的朱/金晕,入夜化作两处暖光 */
+[data-theme='night'] body {
+  background-image:
+    radial-gradient(860px 480px at 8% -8%, rgba(212, 97, 79, 0.12), transparent 60%),
+    radial-gradient(820px 560px at 96% 2%, rgba(203, 164, 92, 0.10), transparent 58%),
+    radial-gradient(760px 760px at 50% 120%, rgba(120, 80, 40, 0.13), transparent 60%);
+}
+/* 暗处纸纹:由「压暗」改为「泛光」,如烛下细纹 */
+[data-theme='night'] body::before { opacity: 0.4; mix-blend-mode: screen; }
+
+/* 页眉:夜色半透,吸顶后愈沉 */
+[data-theme='night'] .site-header { background: rgba(27, 23, 18, 0.82); }
+[data-theme='night'] .site-header.scrolled {
+  background: rgba(31, 26, 20, 0.95);
+  box-shadow: 0 8px 28px -20px rgba(0, 0, 0, 0.85);
+}
+
+/* 题图横幅:墨字反为烛色(透明底,只反色不伤轮廓) */
+[data-theme='night'] .masthead-banner {
+  filter: invert(1) sepia(0.32) saturate(0.72) hue-rotate(-12deg) brightness(1.05) contrast(0.96);
+}
+/* 朱印:灯下添一缕暖晕 */
+[data-theme='night'] .brand-mark,
+[data-theme='night'] .masthead-seal { filter: brightness(1.1) drop-shadow(0 2px 7px rgba(212, 97, 79, 0.4)); }
+[data-theme='night'] .brand:hover .brand-mark { filter: brightness(1.15) drop-shadow(0 2px 9px rgba(212, 97, 79, 0.52)); }
+
+/* 目录行悬停:朱晕 */
+[data-theme='night'] .col-row:hover { background: linear-gradient(90deg, rgba(212, 97, 79, 0.12), transparent 70%); }
+
+/* 卡片悬停边 */
+[data-theme='night'] .entry-card:hover { border-color: rgba(212, 97, 79, 0.42); }
+
+/* 标签:暗处略深其底,使其成形 */
+[data-theme='night'] .tag { background: rgba(212, 97, 79, 0.16); border-color: rgba(212, 97, 79, 0.42); }
+[data-theme='night'] .tag.plain { background: rgba(232, 222, 200, 0.06); border-color: var(--line); }
+
+/* 记事引文 */
+[data-theme='night'] .jishi blockquote { background: rgba(203, 164, 92, 0.12); }
+
+/* 微言笺:暗笺一叠,内缘微光,如灯映笺边 */
+[data-theme='night'] .weiyan {
+  background: linear-gradient(180deg, #221d16, #2a231a);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), var(--shadow);
+}
+
+/* ── 昼/夜 切换 · 灯钮 ─────────────────────────── */
+.nav-right { display: flex; align-items: center; gap: 0.3rem; }
+.theme-toggle {
+  flex: 0 0 auto; width: 34px; height: 34px; margin-left: 0.45rem; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--kai); font-size: 1.08rem; line-height: 1; cursor: pointer;
+  color: var(--ink-soft); background: transparent;
+  border: 1px solid var(--line); border-radius: 50%;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease,
+              transform 0.35s cubic-bezier(.2,.8,.2,1);
+}
+.theme-toggle:hover { color: var(--seal); border-color: var(--seal);
+  background: rgba(168, 52, 42, 0.07); transform: rotate(-14deg); }
+.theme-toggle:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+/* 字形随主题切换:日间示「夜」(点之入夜),夜间示「昼」(还之白昼)——纯 CSS,无闪烁 */
+.theme-toggle .tt-sun { display: none; }
+:root[data-theme='night'] .theme-toggle .tt-sun { display: inline; }
+:root[data-theme='night'] .theme-toggle .tt-moon { display: none; }
+[data-theme='night'] .theme-toggle:hover { background: rgba(212, 97, 79, 0.12); }

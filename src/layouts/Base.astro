@@ -14,6 +14,18 @@ const base = import.meta.env.BASE_URL || '/';
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // 在绘制前定明暗,免得日间样式一闪(FOUC)。优先记忆,次随系统。
+      (function () {
+        var t = 'day';
+        try {
+          var s = localStorage.getItem('ukiyo-theme');
+          if (s === 'night' || s === 'day') t = s;
+          else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t = 'night';
+        } catch (e) {}
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -59,6 +71,34 @@ const base = import.meta.env.BASE_URL || '/';
       } else {
         items.forEach((el) => el.classList.add('in'));
       }
+
+      // 昼/夜 切换 · 灯钮
+      const root = document.documentElement;
+      const toggle = document.querySelector('.theme-toggle');
+      const syncToggle = (night) => {
+        if (!toggle) return;
+        toggle.setAttribute('aria-pressed', String(night));
+        toggle.setAttribute('aria-label', night ? '切换日间模式' : '切换夜间模式');
+        toggle.setAttribute('title', night ? '秉还白昼' : '挑灯夜读');
+      };
+      syncToggle(root.getAttribute('data-theme') === 'night');
+      toggle?.addEventListener('click', () => {
+        const night = root.getAttribute('data-theme') !== 'night';
+        const t = night ? 'night' : 'day';
+        root.setAttribute('data-theme', t);
+        try { localStorage.setItem('ukiyo-theme', t); } catch (e) {}
+        syncToggle(night);
+      });
+      // 未手动选择时,跟随系统明暗
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener?.('change', (e) => {
+        let saved = null;
+        try { saved = localStorage.getItem('ukiyo-theme'); } catch (e) {}
+        if (saved) return;
+        const night = e.matches;
+        root.setAttribute('data-theme', night ? 'night' : 'day');
+        syncToggle(night);
+      });
     </script>
   </body>
 </html>

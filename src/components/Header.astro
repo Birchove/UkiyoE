@@ -25,12 +25,24 @@ function isActive(href: string): boolean {
         <span class="brand-en">UkiyoE · 现代民间史</span>
       </span>
     </a>
-    <nav class="site-nav" aria-label="主导航">
-      {navItems.map((item) => (
-        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
-          {item.label}
-        </a>
-      ))}
-    </nav>
+    <div class="nav-right">
+      <nav class="site-nav" aria-label="主导航">
+        {navItems.map((item) => (
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+      <button
+        type="button"
+        class="theme-toggle"
+        aria-label="切换夜间模式"
+        aria-pressed="false"
+        title="挑灯夜读"
+      >
+        <span class="tt-moon" aria-hidden="true">夜</span>
+        <span class="tt-sun" aria-hidden="true">昼</span>
+      </button>
+    </div>
   </div>
 </header>
