@@ -70,7 +70,7 @@ sources:
     date: "2021-09"
     note: "背景;论公共讨论勿为标签思维所累(2021 年另案,作参照)"
   - name: "B站:十三只牛《聊聊最近的「实验TV」》(本条素材引子)"
-    url: "https://www.bilibili.com/video/"
+    url: "https://www.bilibili.com/video/BV1wGK86uEmi/"
     date: "2026-07"
     note: "民间一手;以「利己主义者」框架解读实验 TV 的代表性长视频"
   - name: "B站:《【思忖】女性困境TV——电梯超载全女乘客站立十分钟无人下梯》"
