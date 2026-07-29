@@ -18,10 +18,10 @@ const figuresText = d.figures.length ? d.figures.join('、') : '';
 ---
 <Base title={`${d.title} · 浮世微言`} description={d.summary}>
   <div class="container">
-    <BackLink href={`${base}/${d.category}`} label={`返回${categoryLabel(d.category)}`} />
+    <BackLink href={`${base}${d.category}`} label={`返回${categoryLabel(d.category)}`} />
     <article class="entry-wrap" data-reveal>
       <header class="entry-header">
-        <a class="eh-cat tag" href={`${base}/${d.category}`}>{categoryLabel(d.category)}</a>
+        <a class="eh-cat tag" href={`${base}${d.category}`}>{categoryLabel(d.category)}</a>
         <h1>{d.title}</h1>
         <div class="eh-meta">
           事在 {d.event_date} · 录于 {d.recorded_date}

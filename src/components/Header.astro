@@ -7,8 +7,8 @@ const isHome = path === base.replace(/\/$/, '');
 
 const navItems = [
   { href: base, label: '首页' },
-  ...CATEGORY_KEYS.map((k) => ({ href: `${base}/${k}`, label: CATEGORIES[k].label })),
-  { href: `${base}/about`, label: '关于' },
+  ...CATEGORY_KEYS.map((k) => ({ href: `${base}${k}`, label: CATEGORIES[k].label })),
+  { href: `${base}about`, label: '关于' },
 ];
 
 function isActive(href: string): boolean {
@@ -19,7 +19,7 @@ function isActive(href: string): boolean {
 <header class={`site-header${isHome ? ' is-home' : ''}`}>
   <div class="nav-inner">
     <a href={base} class="brand" aria-label="浮世微言 · 首页">
-      <img class="brand-mark" src={`${base}/logo.png`} alt="浮世微言 印" width="42" height="42" />
+      <img class="brand-mark" src={`${base}logo.png`} alt="浮世微言 印" width="42" height="42" />
       <span class="brand-text">
         <span class="brand-cn">浮世微言</span>
         <span class="brand-en">UkiyoE · 现代民间史</span>
