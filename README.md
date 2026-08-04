@@ -2,7 +2,7 @@
 
 > 记浮世之事 · 发幽微之言 ｜ *Record the deeds of the floating world · give voice to its hidden whispers*
 
-📖 **在线阅读 · Read online** → [birchove.github.io/UkiyoE](https://birchove.github.io/UkiyoE)
+📖 **在线阅读 · Read online** → [birchove.github.io/UkiyoE](https://birchove.github.io/UkiyoE) 或 [浮世微言](ukiyoe.top)
 
 ---
 
